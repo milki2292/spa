@@ -6,14 +6,13 @@ const reverse = function(arr) {
 }
 
 const sort = function(arr) {
-    arrSorted = [];
-    // ...
+    arrSorted = arr.sort();
     return arrSorted;
 }
 
 const even = function(arr) {
     let arrEven = [];
-    // ...
+    for(let x of arr){if(x%2==0){arrEven.push(x)}}
     return arrEven;
 }
 
