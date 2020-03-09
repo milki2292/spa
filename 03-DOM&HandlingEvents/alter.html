@@ -4,10 +4,10 @@
 		<title>Pink Floyd</title>
 		<meta charset="UTF-8">
 	</head>
-	<body>
-		<h1>Another Brick in the Wall</h1>
-		<h3>Pink Floyd</h3>
-		<p>We don't need no education<br>
+	<body ondblclick="bgcol(this)">
+		<h1 onclick="add(this)" >Another Brick in the Wall</h1>
+		<h3 onclick="script(this)">Pink Floyd</h3>
+		<p id="2" onclick="ita(this)" oncopy="cp()">We don't need no education<br>
 		We don't need no thought control<br>
 		No dark sarcasm in the classroom<br>
 		Teachers leave them kids alone<br>
@@ -15,12 +15,33 @@
 		All in all it's just another brick in the wall<br>
 		All in all you're just another brick in the wall</p>
 		
-		<p style="visibility: hidden;">Pink Floyd were an English rock band formed in London.<br>
+		<p id="1" onclick="script2(this)" style="visibility: hidden;">Pink Floyd were an English rock band formed in London.<br>
 		They achieved international acclaim with their progressive<br>
 		and psychedelic music.</p>
+
+		<p id="3"  style="visibility: hidden;"><img src="https://upload.wikimedia.org/wikipedia/en/d/d6/Pink_Floyd_-_all_members.jpg"></p>
 		
 		<script>
-			// a JavaScript code here ...
+			function add(element){
+				var tx = document.createTextNode(" Part 2")
+				element.appendChild(tx)
+			}
+			function script(element){
+				document.getElementById("1").style.visibility="visible";
+			}
+			function ita(element){
+				element.style.fontStyle="italic";
+				
+			}
+			function bgcol(element){
+				element.style.backgroundColor="yellow";
+			}
+			function cp(){
+				alert("copyright message")
+			}
+			function script2(element){
+				document.getElementById("3").style.visibility="visible";
+			}
 			
 		</script>
 	</body>
