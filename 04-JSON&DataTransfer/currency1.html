@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<title>Currency</title>
+		<meta charset="UTF-8">
+	</head>
+	<body>
+		<h1>Wymiana walut</h1>
+		<p>Kursy walut</p>
+		<input type="button" value="Wyświetl kursy walut" onclick="personalDat()">
+        <p id="Currency">USD</p>
+        <p id="Currency1">EUR</p>
+        <p id="Currency2">GBP</p>
+
+		<script>
+			function personalDat(){
+			fetch('http://api.nbp.pl/api/exchangerates/rates/c/usd/')
+            .then(function(response){
+				return response.json();
+			})
+			.then(function(data){
+				document.getElementById("Currency").innerHTML ="USD " + data.rates[0].bid;
+                console.log(data.rates[0].bid)
+			})
+            fetch('http://api.nbp.pl/api/exchangerates/rates/c/eur/')
+            .then(function(response){
+				return response.json();
+			})
+			.then(function(data){
+				document.getElementById("Currency1").innerHTML ="EUR " + data.rates[0].bid;
+                console.log(data.rates[0].bid)
+			})
+            fetch('http://api.nbp.pl/api/exchangerates/rates/c/gbp/')
+			.then(function(response){
+				return response.json();
+			})
+			.then(function(data){
+				document.getElementById("Currency2").innerHTML ="GBP " + data.rates[0].bid;
+                console.log(data.rates[0].bid)
+			})
+			.catch(function (err){
+				console.log('błąd:' +err);
+			});
+			}
+		</script>
+
+	</body>
+</html>
