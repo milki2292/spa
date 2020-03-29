@@ -4,7 +4,19 @@
     <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
 </head>
 <body>
-  <h1>Grades</h1>    
+  <h1>Grades</h1>
+  <div id="app">
+    Receipt <br>
+    ------------<br>
+    Product: {{product.name}} <br>
+    Unit Price: {{product.unitPrice}}<br>
+    Quantity: {{product.quantity}}<br>
+    Amount: {{product.quantity * product.unitPrice}}<br>
+    Vat tax rate : {{product.VAT}} %<br>
+    =============<br>
+    Total: {{Math.round(((product.VAT/100*(product.quantity * product.unitPrice))+(product.quantity * product.unitPrice))*100)/100}} zł
+   </div>
+    
 
   <script>
     var app = new Vue({

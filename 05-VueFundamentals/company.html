@@ -4,6 +4,13 @@
     <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
 </head>
 <body>
+<div style="border: 1px solid black; width: 300px; text-align: center; height: 150px; margin: auto; padding-top: 50px;" id="app">
+    {{company.toUpperCase()}}<br>
+    {{address}}<br>
+    {{postcode}} {{city}}<br>
+    {{mobile}}, {{landline}}
+    <a v-bind:href="web">{{web}}</a>
+  </div>
   <script>
     var app = new Vue({
       el: '#app',

@@ -2,8 +2,30 @@
 <html>
 <head>
     <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+    <style>
+      th,td{
+        border: 1px solid black;
+        border-collapse: collapse;
+        width: 150px;
+      }
+    </style>
 </head>
 <body>
+  <div id="app">
+    <table style="border: 1px solid black; border-collapse: collapse;
+    ">
+      <thead>
+        <tr>
+          <th v-for="(value, name) in films[0]">{{name}}</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr v-for="film in films">
+          <td v-for="data in film">{{data}}</td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
   <script>
     var app = new Vue({
       el: '#app',
@@ -36,7 +58,7 @@
         ] 
         }
       }
-    });
+    );
   </script>
 </body>
 </html>

@@ -1,14 +1,19 @@
+  
 <!DOCTYPE html>
 <html>
 <head>
     <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.9.3/Chart.min.js"></script>
 </head>
 <body>
+  <div id="app">
+    <canvas id="chart" width="150" height="70"></canvas>
+  </div>
   <script>
     var app = new Vue({
       el: '#app',
       data: {
-        films: [
+        languages: [
           {
             language: 'Python',
             popularity: 25.95
@@ -30,8 +35,36 @@
             popularity: 7.37
           }
         ] 
-      }
+      },
     });
+
+    let myChart = document.getElementById("chart").getContext("2d")
+    let chartLabels = []
+    let chartData = []
+
+    for(l of app.languages){
+      chartLabels.push(l.language)
+      chartData.push(l.popularity)
+    }
+
+    let chart = new Chart(myChart, {
+						type: "bar",
+						data: {
+							labels: chartLabels,
+							datasets:[{
+                label: "Value",
+								data: chartData,
+								backgroundColor: [
+                					'rgba(123, 99, 132, 1)',
+                					'rgba(111, 22, 12, 1)',
+                					'rgba(233, 12, 86, 1)',
+                					'rgba(155, 192, 22, 1)',
+                          'rgba(51, 22, 144, 1)',
+            						],
+							}]
+						},
+						options: {}
+					})
   </script>
 </body>
 </html>
